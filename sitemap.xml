@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://hfl-rc.github.io/cmrc2019/</loc>
+<loc>/committee/</loc>
+</url>
+<url>
+<loc>/english/</loc>
+</url>
+<url>
+<loc>/finals/</loc>
+</url>
+<url>
+<loc>/</loc>
+</url>
+<url>
+<loc>/leaderboard/</loc>
+</url>
+<url>
+<loc>/news/</loc>
+</url>
+<url>
+<loc>/program/</loc>
+</url>
+<url>
+<loc>/qualifying/</loc>
+</url>
+<url>
+<loc>/task/</loc>
 </url>
 </urlset>
