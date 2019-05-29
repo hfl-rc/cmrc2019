@@ -203,7 +203,11 @@
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#section" id="markdown-toc-section">评测任务</a></li>
   <li><a href="#section-1" id="markdown-toc-section-1">评测数据</a></li>
-  <li><a href="#section-2" id="markdown-toc-section-2">数据格式</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">数据格式</a>    <ul>
+      <li><a href="#json" id="markdown-toc-json">JSON举例（不包含假选项）</a></li>
+      <li><a href="#json-1" id="markdown-toc-json-1">JSON举例（包含假选项）</a></li>
+    </ul>
+  </li>
   <li><a href="#section-3" id="markdown-toc-section-3">评价指标</a></li>
   <li><a href="#section-4" id="markdown-toc-section-4">基线系统</a></li>
   <li><a href="#section-5" id="markdown-toc-section-5">最终排名依据</a></li>
@@ -227,11 +231,9 @@
     <p>每个篇章不只是一个空缺，会包含多个空缺位置，机器可利用的信息大大减少</p>
   </li>
   <li>
-    <p>最终的测试集中包含<strong>假选项</strong>，即该选项不属于篇章中任何一个空缺位置，大大增加了解答难度</p>
+    <p>候选选项中包含<strong>假选项</strong>，即该选项不属于篇章中任何一个空缺位置，显著增加了解答难度</p>
   </li>
 </ul>
-
-<p>提醒：所有公开的集合（试验集、训练集、开发集、资格集）均<strong>不含假选项</strong></p>
 
 <h2 id="section-1">评测数据</h2>
 
@@ -243,53 +245,92 @@
             <td style="width: 30%;"><b>集合</b></td>
             <td style="width: 10%;"><b>篇章数</b></td>
             <td style="width: 10%;"><b>问题数</b></td>
+            <td style="width: 10%;"><b>假选项</b></td>
             <td style="width: 10%;"><b>是否公开</b></td>
         </tr>
         <tr>
             <td style="width: 30%;">试验集（Trial Data）</td>
             <td style="width: 10%;">139</td>
             <td style="width: 10%;">1,504</td>
+            <td style="width: 10%;">不含</td>
             <td style="width: 10%;">公开</td>
         </tr>
         <tr>
             <td style="width: 30%;">训练集（Train Data）</td>
             <td style="width: 10%;">9,638</td>
             <td style="width: 10%;">100,009</td>
+            <td style="width: 10%;">不含</td>
             <td style="width: 10%;">公开</td>
         </tr>
         <tr>
             <td style="width: 30%;">开发集（Development Data）</td>
             <td style="width: 10%;">-</td>
             <td style="width: 10%;">-</td>
+            <td style="width: 10%;"><b>包含</b></td>
             <td style="width: 10%;">公开</td>
         </tr>
         <tr>
-            <td style="width: 30%;">资格集（Qualification Data）</td>
+            <td style="width: 30%;">资格集（Qualifying Data）</td>
             <td style="width: 10%;">-</td>
             <td style="width: 10%;">-</td>
-            <td style="width: 10%;">半公开</td>
+            <td style="width: 10%;"><b>包含</b></td>
+            <td style="width: 10%;"><b>答案隐藏</b></td>
         </tr>
         <tr>
             <td style="width: 30%;">测试集（Test Data）</td>
             <td style="width: 10%;">-</td>
             <td style="width: 10%;">-</td>
-            <td style="width: 10%;">隐藏</td>
+            <td style="width: 10%;"><b>包含</b></td>
+            <td style="width: 10%;"><b>完全隐藏</b></td>
         </tr>
     </tbody>
 </table>
 
 <h2 id="section-2">数据格式</h2>
-<p><strong>context</strong>：带空缺的篇章，空缺以<code class="highlighter-rouge">[BLANK]</code>表示<br />
-<strong>context_id</strong>：篇章的ID<br />
-<strong>choices</strong>：填入空缺内的候选句子<br />
-<strong>answers</strong>：填入空缺的句子序号顺序（句子序号从0开始计数）<br /></p>
 
-<p><strong>举例（JSON文件片段）：</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">JSON字段</th>
+      <th style="text-align: left">介绍</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">context</td>
+      <td style="text-align: left">带空缺的篇章，空缺以<code class="highlighter-rouge">[BLANK]</code>表示</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">context_id</td>
+      <td style="text-align: left">篇章的ID, 唯一</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">choices</td>
+      <td style="text-align: left">填入空缺内的候选句子，<strong>有序</strong>列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers</td>
+      <td style="text-align: left">填入空缺的句子序号顺序（句子序号从0开始计数）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="json">JSON举例（不包含假选项）</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 小松鼠说：“我爬到树上去看过，鸟宝宝光溜溜的，身上一根羽毛也没有。” “我不相信，”小白兔说，“所有的鸟都是有羽毛的。” “鸟宝宝没有羽毛。”小松鼠说，“你不信自己去看。” 小白兔不会爬树，它没有办法去看。小白兔说：“我请蓝狐狸去看一看，我相信蓝狐狸的话。” 小松鼠说：“蓝狐狸跟你一样，也不会爬树。” 蓝狐狸说：“我有魔法树叶，我能变成一只狐狸鸟。” [BLANK2]，一下子飞到了树顶上。 “蓝狐狸，你看到了吗？”小白兔在树下大声喊。 “我看到了，鸟窝里有四只小鸟，他们真是光溜溜的，一根羽毛也没有。”蓝狐狸说。 就在这时候，鸟妈妈和鸟爸爸回来了，[BLANK3]，立刻大喊大叫： “抓强盗啊！抓强盗啊！强盗闯进了我们家里，想偷我们的孩子！” [BLANK4]，全都飞了过来。他们扇着翅膀，朝蓝狐狸冲过来，用尖尖的嘴啄他，用爪子抓他。 蓝狐狸扑扇翅膀，赶紧飞。 鸟儿们排着队伍，紧紧追上来。[BLANK5]，它飞得不高，也飞得不快。 “救命啊，救命！”蓝狐狸说，“我不是强盗，我是蓝狐狸！” 小白兔在草丛说：“你不是鸟，你飞不过他们，你赶快变回狐狸吧！” 蓝狐狸急忙落到地上，变回了狐狸，躲进深深的草丛里。 鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
+            小松鼠说：“我爬到树上去看过，鸟宝宝光溜溜的，身上一根羽毛也没有。” “我不相信，”小白兔说，“所有的鸟都是有羽毛的。” 
+            “鸟宝宝没有羽毛。”小松鼠说，“你不信自己去看。” 
+            小白兔不会爬树，它没有办法去看。小白兔说：“我请蓝狐狸去看一看，我相信蓝狐狸的话。” 小松鼠说：“蓝狐狸跟你一样，也不会爬树。” 
+            蓝狐狸说：“我有魔法树叶，我能变成一只狐狸鸟。” [BLANK2]，一下子飞到了树顶上。 “蓝狐狸，你看到了吗？”小白兔在树下大声喊。 
+            “我看到了，鸟窝里有四只小鸟，他们真是光溜溜的，一根羽毛也没有。”蓝狐狸说。 就在这时候，鸟妈妈和鸟爸爸回来了，
+            [BLANK3]，立刻大喊大叫： “抓强盗啊！抓强盗啊！强盗闯进了我们家里，想偷我们的孩子！” 
+            [BLANK4]，全都飞了过来。他们扇着翅膀，朝蓝狐狸冲过来，用尖尖的嘴啄他，用爪子抓他。 蓝狐狸扑扇翅膀，赶紧飞。 
+            鸟儿们排着队伍，紧紧追上来。[BLANK5]，它飞得不高，也飞得不快。 “救命啊，救命！”蓝狐狸说，“我不是强盗，我是蓝狐狸！” 
+            小白兔在草丛说：“你不是鸟，你飞不过他们，你赶快变回狐狸吧！” 蓝狐狸急忙落到地上，变回了狐狸，躲进深深的草丛里。 
+            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"蓝狐狸是第一次变成狐狸鸟"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"森林里所有的鸟听到喊声"</span><span class="p">,</span><span class="w">
@@ -307,6 +348,40 @@
 
 <p>理解：上述例子中，[BLANK1]需填入choices[4]，故answers[0]=4；[BLANK2]需填入choices[3]，故answers[1]=3；以此类推。</p>
 
+<h3 id="json-1">JSON举例（包含假选项）</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
+            小松鼠说：“我爬到树上去看过，鸟宝宝光溜溜的，身上一根羽毛也没有。” “我不相信，”小白兔说，“所有的鸟都是有羽毛的。” 
+            “鸟宝宝没有羽毛。”小松鼠说，“你不信自己去看。” 
+            小白兔不会爬树，它没有办法去看。小白兔说：“我请蓝狐狸去看一看，我相信蓝狐狸的话。” 小松鼠说：“蓝狐狸跟你一样，也不会爬树。” 
+            蓝狐狸说：“我有魔法树叶，我能变成一只狐狸鸟。” [BLANK2]，一下子飞到了树顶上。 “蓝狐狸，你看到了吗？”小白兔在树下大声喊。 
+            “我看到了，鸟窝里有四只小鸟，他们真是光溜溜的，一根羽毛也没有。”蓝狐狸说。 就在这时候，鸟妈妈和鸟爸爸回来了，
+            [BLANK3]，立刻大喊大叫： “抓强盗啊！抓强盗啊！强盗闯进了我们家里，想偷我们的孩子！” 
+            [BLANK4]，全都飞了过来。他们扇着翅膀，朝蓝狐狸冲过来，用尖尖的嘴啄他，用爪子抓他。 蓝狐狸扑扇翅膀，赶紧飞。 
+            鸟儿们排着队伍，紧紧追上来。[BLANK5]，它飞得不高，也飞得不快。 “救命啊，救命！”蓝狐狸说，“我不是强盗，我是蓝狐狸！” 
+            小白兔在草丛说：“你不是鸟，你飞不过他们，你赶快变回狐狸吧！” 蓝狐狸急忙落到地上，变回了狐狸，躲进深深的草丛里。 
+            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"蓝狐狸是第一次变成狐狸鸟"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"森林里所有的鸟听到喊声"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"他们看到鸟窝里蹲着一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"蓝狐狸真的变成了一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"小动物们只看到过鸟妈妈和鸟爸爸在鸟窝里飞进飞出"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"小松鼠变成了一只蓝色的大鸟"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"context_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMPLE_00002"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>理解： 上述例子中，choices中的最后一个句子不属于[BLANK1] ~ [BLANK5]中的任何一个空缺，对模型的判别能力有更大的挑战。</p>
+
 <h2 id="section-3">评价指标</h2>
 
 <script type="text/javascript" async="" src="../assets/js/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -316,13 +391,13 @@
   <li>问题准确率（<strong>Q</strong>uestion <strong>AC</strong>curacy, <strong>QAC</strong>）：计算问题（一个空即一个问题）级别的准确率</li>
 </ul>
 
-<script type="math/tex; mode=display">\text{QAC} = \frac{答对的问题数}{总问题数}</script>
+<script type="math/tex; mode=display">\mathbf{QAC} = \frac{答对的问题数}{总问题数}</script>
 
 <ul>
   <li>篇章准确率（<strong>P</strong>assage <strong>AC</strong>curacy, <strong>PAC</strong>）：计算篇章级别的准确率</li>
 </ul>
 
-<script type="math/tex; mode=display">\text{PAC} = \frac{完全答对的篇章数}{总篇章数}</script>
+<script type="math/tex; mode=display">\mathbf{PAC} = \frac{完全答对的篇章数}{总篇章数}</script>
 
 <p>例如：篇章中共有10个空，完全答对所有的空缺才算正确，否则不得分。</p>
 
@@ -352,7 +427,7 @@
             <td style="width: 10%;">-</td>
         </tr>
         <tr>
-            <td style="width: 30%;">资格集（Qualification Data）</td>
+            <td style="width: 30%;">资格集（Qualifying Data）</td>
             <td style="width: 10%;">-</td>
             <td style="width: 10%;">-</td>
         </tr>
@@ -368,9 +443,16 @@
 
 <p>最终的排名将根据<strong>测试集</strong>综合结果进行排名（80%占比），以及专家评审（20%占比）。</p>
 
-<p>关于客观指标评价（80%占比）：
-1. 本次评测优先按照<strong>问题准确率QAC</strong>从高到低进行排列。
-2. 当两个队伍在问题准确率QAC上完全一致时，则进一步考虑<strong>篇章准确率PAC</strong>，高者排前。</p>
+<p>关于客观指标评价（80%占比）：</p>
+
+<ol>
+  <li>
+    <p>本次评测优先按照<strong>问题准确率QAC</strong>从高到低进行排列。</p>
+  </li>
+  <li>
+    <p>当两个队伍在问题准确率QAC上完全一致时，则进一步考虑<strong>篇章准确率PAC</strong>，高者排前。</p>
+  </li>
+</ol>
 
 
         
