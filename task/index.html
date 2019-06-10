@@ -201,22 +201,22 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-gears"></i> </h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">评测任务</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">评测数据</a></li>
-  <li><a href="#section-2" id="markdown-toc-section-2">数据格式</a>    <ul>
-      <li><a href="#json" id="markdown-toc-json">JSON举例（不包含假选项）</a></li>
-      <li><a href="#json-1" id="markdown-toc-json-1">JSON举例（包含假选项）</a></li>
+  <li><a href="#评测任务" id="markdown-toc-评测任务">评测任务</a></li>
+  <li><a href="#评测数据" id="markdown-toc-评测数据">评测数据</a></li>
+  <li><a href="#数据格式" id="markdown-toc-数据格式">数据格式</a>    <ul>
+      <li><a href="#json举例不包含假选项" id="markdown-toc-json举例不包含假选项">JSON举例（不包含假选项）</a></li>
+      <li><a href="#json举例包含假选项" id="markdown-toc-json举例包含假选项">JSON举例（包含假选项）</a></li>
     </ul>
   </li>
-  <li><a href="#section-3" id="markdown-toc-section-3">评价指标</a></li>
-  <li><a href="#section-4" id="markdown-toc-section-4">基线系统</a></li>
-  <li><a href="#section-5" id="markdown-toc-section-5">最终排名依据</a></li>
+  <li><a href="#评价指标" id="markdown-toc-评价指标">评价指标</a></li>
+  <li><a href="#基线系统" id="markdown-toc-基线系统">基线系统</a></li>
+  <li><a href="#最终排名依据" id="markdown-toc-最终排名依据">最终排名依据</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h2 id="section">评测任务</h2>
+<h2 id="评测任务">评测任务</h2>
 
 <p>第三届“讯飞杯”中文机器阅读理解（CMRC 2019）的任务是<strong>句子级填空型阅读理解（Sentence Cloze-Style Machine Reading Comprehension, SC-MRC）</strong>。</p>
 
@@ -235,7 +235,7 @@
   </li>
 </ul>
 
-<h2 id="section-1">评测数据</h2>
+<h2 id="评测数据">评测数据</h2>
 
 <p>所有数据请通过官方GitHub目录下载：<a href="https://github.com/ymcui/cmrc2019">数据下载地址</a></p>
 
@@ -264,8 +264,8 @@
         </tr>
         <tr>
             <td style="width: 30%;">开发集（Development Data）</td>
-            <td style="width: 10%;">-</td>
-            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">300</td>
+            <td style="width: 10%;">3,053</td>
             <td style="width: 10%;"><b>包含</b></td>
             <td style="width: 10%;">公开</td>
         </tr>
@@ -286,7 +286,7 @@
     </tbody>
 </table>
 
-<h2 id="section-2">数据格式</h2>
+<h2 id="数据格式">数据格式</h2>
 
 <table>
   <thead>
@@ -315,12 +315,12 @@
   </tbody>
 </table>
 
-<h3 id="json">JSON举例（不包含假选项）</h3>
+<h3 id="json举例不包含假选项">JSON举例（不包含假选项）</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "data": [
+        {
+            "context": "森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
             小松鼠说：“我爬到树上去看过，鸟宝宝光溜溜的，身上一根羽毛也没有。” “我不相信，”小白兔说，“所有的鸟都是有羽毛的。” 
             “鸟宝宝没有羽毛。”小松鼠说，“你不信自己去看。” 
             小白兔不会爬树，它没有办法去看。小白兔说：“我请蓝狐狸去看一看，我相信蓝狐狸的话。” 小松鼠说：“蓝狐狸跟你一样，也不会爬树。” 
@@ -330,30 +330,29 @@
             [BLANK4]，全都飞了过来。他们扇着翅膀，朝蓝狐狸冲过来，用尖尖的嘴啄他，用爪子抓他。 蓝狐狸扑扇翅膀，赶紧飞。 
             鸟儿们排着队伍，紧紧追上来。[BLANK5]，它飞得不高，也飞得不快。 “救命啊，救命！”蓝狐狸说，“我不是强盗，我是蓝狐狸！” 
             小白兔在草丛说：“你不是鸟，你飞不过他们，你赶快变回狐狸吧！” 蓝狐狸急忙落到地上，变回了狐狸，躲进深深的草丛里。 
-            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"蓝狐狸是第一次变成狐狸鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"森林里所有的鸟听到喊声"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"他们看到鸟窝里蹲着一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"蓝狐狸真的变成了一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"小动物们只看到过鸟妈妈和鸟爸爸在鸟窝里飞进飞出"</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"context_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMPLE_00001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。",
+            "choices": [
+                "蓝狐狸是第一次变成狐狸鸟",
+                "森林里所有的鸟听到喊声",
+                "他们看到鸟窝里蹲着一只蓝色的大鸟",
+                "蓝狐狸真的变成了一只蓝色的大鸟",
+                "小动物们只看到过鸟妈妈和鸟爸爸在鸟窝里飞进飞出"
+                ],
+            "context_id": "SAMPLE_00001",
+            "answers": [4,3,2,1,0]
+        }
+    ]
+}
+</code></pre></div></div>
 
 <p>理解：上述例子中，[BLANK1]需填入choices[4]，故answers[0]=4；[BLANK2]需填入choices[3]，故answers[1]=3；以此类推。</p>
 
-<h3 id="json-1">JSON举例（包含假选项）</h3>
+<h3 id="json举例包含假选项">JSON举例（包含假选项）</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "data": [
+        {
+            "context": "森林里有一棵大树，树上有一个鸟窝。[BLANK1]，还从来没有看到过鸟宝宝长什么样。 
             小松鼠说：“我爬到树上去看过，鸟宝宝光溜溜的，身上一根羽毛也没有。” “我不相信，”小白兔说，“所有的鸟都是有羽毛的。” 
             “鸟宝宝没有羽毛。”小松鼠说，“你不信自己去看。” 
             小白兔不会爬树，它没有办法去看。小白兔说：“我请蓝狐狸去看一看，我相信蓝狐狸的话。” 小松鼠说：“蓝狐狸跟你一样，也不会爬树。” 
@@ -363,26 +362,25 @@
             [BLANK4]，全都飞了过来。他们扇着翅膀，朝蓝狐狸冲过来，用尖尖的嘴啄他，用爪子抓他。 蓝狐狸扑扇翅膀，赶紧飞。 
             鸟儿们排着队伍，紧紧追上来。[BLANK5]，它飞得不高，也飞得不快。 “救命啊，救命！”蓝狐狸说，“我不是强盗，我是蓝狐狸！” 
             小白兔在草丛说：“你不是鸟，你飞不过他们，你赶快变回狐狸吧！” 蓝狐狸急忙落到地上，变回了狐狸，躲进深深的草丛里。 
-            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"蓝狐狸是第一次变成狐狸鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"森林里所有的鸟听到喊声"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"他们看到鸟窝里蹲着一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"蓝狐狸真的变成了一只蓝色的大鸟"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"小动物们只看到过鸟妈妈和鸟爸爸在鸟窝里飞进飞出"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"小松鼠变成了一只蓝色的大鸟"</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"context_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMPLE_00002"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+            鸟儿们找不到蓝狐狸，只得飞走了。 蓝狐狸对小白兔说：“谢谢你。",
+            "choices": [
+                "蓝狐狸是第一次变成狐狸鸟",
+                "森林里所有的鸟听到喊声",
+                "他们看到鸟窝里蹲着一只蓝色的大鸟",
+                "蓝狐狸真的变成了一只蓝色的大鸟",
+                "小动物们只看到过鸟妈妈和鸟爸爸在鸟窝里飞进飞出",
+                "小松鼠变成了一只蓝色的大鸟"
+                ],
+            "context_id": "SAMPLE_00002",
+            "answers": [4,3,2,1,0]
+        }
+    ]
+}
+</code></pre></div></div>
 
 <p>理解： 上述例子中，choices中的最后一个句子不属于[BLANK1] ~ [BLANK5]中的任何一个空缺，对模型的判别能力有更大的挑战。</p>
 
-<h2 id="section-3">评价指标</h2>
+<h2 id="评价指标">评价指标</h2>
 
 <script type="text/javascript" async="" src="../assets/js/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -401,7 +399,7 @@
 
 <p>例如：篇章中共有10个空，完全答对所有的空缺才算正确，否则不得分。</p>
 
-<h2 id="section-4">基线系统</h2>
+<h2 id="基线系统">基线系统</h2>
 
 <p>我们提供了基于BERT (Chinese, base) 的基线系统：<a href="https://github.com/ymcui/cmrc2019">GitHub</a></p>
 
@@ -423,8 +421,8 @@
         </tr>
         <tr>
             <td style="width: 30%;">开发集（Development Data）</td>
-            <td style="width: 10%;">-</td>
-            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">70.586%</td>
+            <td style="width: 10%;">13.333%</td>
         </tr>
         <tr>
             <td style="width: 30%;">资格集（Qualifying Data）</td>
@@ -439,7 +437,7 @@
     </tbody>
 </table>
 
-<h2 id="section-5">最终排名依据</h2>
+<h2 id="最终排名依据">最终排名依据</h2>
 
 <p>最终的排名将根据<strong>测试集</strong>综合结果进行排名（80%占比），以及专家评审（20%占比）。</p>
 
