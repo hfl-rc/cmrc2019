@@ -259,43 +259,43 @@
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-gears"></i> </h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#section" id="markdown-toc-section">资格赛提交网址</a></li>
-  <li><a href="#section-1" id="markdown-toc-section-1">重要说明</a></li>
-  <li><a href="#section-2" id="markdown-toc-section-2">准备工作</a></li>
-  <li><a href="#section-3" id="markdown-toc-section-3">提交流程（试验集、开发集、资格集均一致）</a>    <ul>
-      <li><a href="#section-4" id="markdown-toc-section-4">准备预测文件</a></li>
-      <li><a href="#section-5" id="markdown-toc-section-5">线下测试</a></li>
-      <li><a href="#section-6" id="markdown-toc-section-6">填写在线提交表单</a></li>
-      <li><a href="#section-7" id="markdown-toc-section-7">等待运行结果</a></li>
-      <li><a href="#section-8" id="markdown-toc-section-8">查看榜单</a></li>
+  <li><a href="#资格赛提交网址" id="markdown-toc-资格赛提交网址">资格赛提交网址</a></li>
+  <li><a href="#重要说明" id="markdown-toc-重要说明">重要说明</a></li>
+  <li><a href="#准备工作" id="markdown-toc-准备工作">准备工作</a></li>
+  <li><a href="#提交流程试验集开发集资格集均一致" id="markdown-toc-提交流程试验集开发集资格集均一致">提交流程（试验集、开发集、资格集均一致）</a>    <ul>
+      <li><a href="#准备预测文件" id="markdown-toc-准备预测文件">准备预测文件</a></li>
+      <li><a href="#线下测试" id="markdown-toc-线下测试">线下测试</a></li>
+      <li><a href="#填写在线提交表单" id="markdown-toc-填写在线提交表单">填写在线提交表单</a></li>
+      <li><a href="#等待运行结果" id="markdown-toc-等待运行结果">等待运行结果</a></li>
+      <li><a href="#查看榜单" id="markdown-toc-查看榜单">查看榜单</a></li>
     </ul>
   </li>
-  <li><a href="#section-9" id="markdown-toc-section-9">提交次数限制</a></li>
-  <li><a href="#section-10" id="markdown-toc-section-10">问题反馈</a></li>
+  <li><a href="#提交次数限制" id="markdown-toc-提交次数限制">提交次数限制</a></li>
+  <li><a href="#问题反馈" id="markdown-toc-问题反馈">问题反馈</a></li>
 </ul>
 
   </nav>
 </aside>
 
-<h2 id="section">资格赛提交网址</h2>
+<h2 id="资格赛提交网址">资格赛提交网址</h2>
 
-<p><a href="https://competitions.codalab.org/competitions/23059">CodaLab Competition</a></p>
+<p><a href="https://competitions-new.codalab.org/competitions/20131">CodaLab Competition</a></p>
 
-<h2 id="section-1">重要说明</h2>
+<h2 id="重要说明">重要说明</h2>
 
 <ol>
-  <li>资格赛阶段使用的是<a href="http://competition.codalab.org">CodaLab Competition平台</a>。</li>
+  <li>资格赛阶段使用的是<a href="http://competition-new.codalab.org">CodaLab Competition平台</a>。</li>
   <li>请使用评测注册时填报的codalab账号进行结果提交，非注册人员无资格提交结果。</li>
   <li>试验集、开发集结果仅用于展示，不纳入资格获取的因素。</li>
   <li>所有结果均强制显示在排行榜中，请充分考虑后再提交。</li>
 </ol>
 
-<h2 id="section-2">准备工作</h2>
+<h2 id="准备工作">准备工作</h2>
 
 <p>在提交结果之前，请完成下述准备工作（仅需一次）。</p>
 
 <ul>
-  <li>打开<a href="https://competitions.codalab.org/competitions/23059">CodaLab Competition</a>，登陆后点击右上角菜单中的“Settings”</li>
+  <li>打开<a href="https://competitions-new.codalab.org/competitions/20131">CodaLab Competition</a>，登陆后点击右上角菜单中的“Settings”</li>
 </ul>
 
 <p><img src="../images/prep1.png" alt="image-center" class="align-center" />
@@ -315,21 +315,20 @@
 <p><img src="../images/prep3.png" alt="image-center" class="align-center" />
 <br /></p>
 
-<h2 id="section-3">提交流程（试验集、开发集、资格集均一致）</h2>
+<h2 id="提交流程试验集开发集资格集均一致">提交流程（试验集、开发集、资格集均一致）</h2>
 <p>请参赛队伍按照如下步骤提交结果。前期熟悉流程的时候建议使用<code class="highlighter-rouge">Trial Phase</code>来练习，避免消耗其他阶段的提交次数。</p>
 
-<h3 id="section-4">准备预测文件</h3>
+<h3 id="准备预测文件">准备预测文件</h3>
 
 <p>预测文件格式（json格式，<code class="highlighter-rouge">key</code>：<code class="highlighter-rouge">context_id</code>，<code class="highlighter-rouge">value</code>：<code class="highlighter-rouge">句子序号list</code>）：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="err">'TRIAL_00001':</span><span class="w"> </span><span class="err">[4,2,1,3,0],</span><span class="w">
-	</span><span class="err">'TRIAL_00002':</span><span class="w"> </span><span class="err">[2,1,0],</span><span class="w">
-	</span><span class="err">...</span><span class="w">
-	</span><span class="err">'TRIAL_00010':</span><span class="w"> </span><span class="err">[0,2,1,5,4,3]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+	'TRIAL_00001': [4,2,1,3,0],
+	'TRIAL_00002': [2,1,0],
+	...
+	'TRIAL_00010': [0,2,1,5,4,3]
+}
+</code></pre></div></div>
 
 <p>注意：</p>
 
@@ -342,22 +341,21 @@
   </li>
 </ol>
 
-<h3 id="section-5">线下测试</h3>
+<h3 id="线下测试">线下测试</h3>
 <p>由于线上线下测试脚本均为官方评测脚本<code class="highlighter-rouge">cmrc2019_evaluate.py</code>，请务必先在线下测试无误后再提交到线上。</p>
 
 <p><code class="highlighter-rouge">&gt; python cmrc2019_evaluate.py cmrc2019_trial.json trial_predictions.json</code></p>
 
 <p>结果示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FILE: trial_predictions.json
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FILE: trial_predictions.json
 QAC: 64.6276595745
 PAC: 10.7913669065
 TOTAL: 1504
 SKIP: 0
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="section-6">填写在线提交表单</h3>
+<h3 id="填写在线提交表单">填写在线提交表单</h3>
 
 <p>依次点击<code class="highlighter-rouge">Participate</code> -&gt; <code class="highlighter-rouge">Submit / View Results</code>，并选择需要提交的集合（Trial/Dev/Qualify)</p>
 
@@ -376,7 +374,7 @@ SKIP: 0
 
 <p><strong>注意：由于平台限制，请将模型输出的json文件打包成zip文件。该压缩包内仅包含一个json文件。MAC系统请勿直接使用系统自带的压缩，会添加额外的文件夹（__MACOSX）进去。请使用命令行或者其他压缩工具，避免加入额外的文件夹。</strong></p>
 
-<h3 id="section-7">等待运行结果</h3>
+<h3 id="等待运行结果">等待运行结果</h3>
 
 <p>提交完成后会添加到运行列表中，待运行完毕后状态会变为<code class="highlighter-rouge">Finished</code>，如下图所示。
 右侧的SCORE显示的是QAC（问题准确率）指标。</p>
@@ -384,7 +382,7 @@ SKIP: 0
 <p><img src="../images/qualify4.png" alt="image-center" class="align-center" />
 <br /></p>
 
-<h3 id="section-8">查看榜单</h3>
+<h3 id="查看榜单">查看榜单</h3>
 
 <p>资格赛的所有结果（Trial/Dev/Qualify）均会<strong>强制</strong>更新到榜单中。
 通过<code class="highlighter-rouge">Results</code>页面可查看最新的排行榜。</p>
@@ -397,7 +395,7 @@ SKIP: 0
 <p><img src="../images/qualify6.png" alt="image-center" class="align-center" />
 <br /></p>
 
-<h2 id="section-9">提交次数限制</h2>
+<h2 id="提交次数限制">提交次数限制</h2>
 
 <p>我们为每个评测阶段限制了单日和全局提交次数限制，请参考如下表格。</p>
 
@@ -441,10 +439,8 @@ SKIP: 0
   </li>
 </ol>
 
-<h2 id="section-10">问题反馈</h2>
+<h2 id="问题反馈">问题反馈</h2>
 <p>如有任何问题请与CMRC 2019评测委员会联系 <strong>cmrc2019 [at] 126 [dot] com</strong></p>
-
-<p>同时也可在CodaLab Competition中的<a href="https://competitions.codalab.org/forums/19781/">在线论坛</a>进行反馈。</p>
 
         
       </section>
