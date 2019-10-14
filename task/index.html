@@ -239,6 +239,53 @@
 
 <p>所有数据请通过官方GitHub目录下载：<a href="https://github.com/ymcui/cmrc2019">数据下载地址</a></p>
 
+<table style="width: 80%">
+    <tbody>
+        <tr style="background-color: #F0F0F0">
+            <td style="width: 30%;"><b>集合</b></td>
+            <td style="width: 10%;"><b>篇章数</b></td>
+            <td style="width: 10%;"><b>问题数</b></td>
+            <td style="width: 10%;"><b>假选项</b></td>
+            <td style="width: 10%;"><b>是否公开</b></td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">试验集（Trial Data）</td>
+            <td style="width: 10%;">139</td>
+            <td style="width: 10%;">1,504</td>
+            <td style="width: 10%;">不含</td>
+            <td style="width: 10%;">公开</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">训练集（Train Data）</td>
+            <td style="width: 10%;">9,638</td>
+            <td style="width: 10%;">100,009</td>
+            <td style="width: 10%;">不含</td>
+            <td style="width: 10%;">公开</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">开发集（Development Data）</td>
+            <td style="width: 10%;">300</td>
+            <td style="width: 10%;">3,053</td>
+            <td style="width: 10%;"><b>包含</b></td>
+            <td style="width: 10%;">公开</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">资格集（Qualifying Data）</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;"><b>包含</b></td>
+            <td style="width: 10%;"><b>答案隐藏</b></td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">测试集（Test Data）</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;"><b>包含</b></td>
+            <td style="width: 10%;"><b>完全隐藏</b></td>
+        </tr>
+    </tbody>
+</table>
+
 <h2 id="数据格式">数据格式</h2>
 
 <table>
@@ -359,6 +406,36 @@
 <p>注意：若使用BERT相关系统，可<code class="highlighter-rouge">[BLANK]</code>替换成BERT词表（vocab.txt）中的<code class="highlighter-rouge">[unused]</code>，避免被当做<code class="highlighter-rouge">unk</code>或被切词切开，具体可参考基线代码实现。</p>
 
 <p>目前仅提供试验集的基线结果，其他集合结果将在对应数据公开（开发集、资格集）或相关比赛节点开始（测试集）后提供。</p>
+
+<table style="width: 60%">
+    <tbody>
+        <tr style="background-color: #F0F0F0">
+            <td style="width: 30%;"><b>集合</b></td>
+            <td style="width: 10%;"><b>QAC</b></td>
+            <td style="width: 10%;"><b>PAC</b></td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">试验集（Trial Data）</td>
+            <td style="width: 10%;">71.941%</td>
+            <td style="width: 10%;">28.776%</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">开发集（Development Data）</td>
+            <td style="width: 10%;">70.586%</td>
+            <td style="width: 10%;">13.333%</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">资格集（Qualifying Data）</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">-</td>
+        </tr>
+        <tr>
+            <td style="width: 30%;">测试集（Test Data）</td>
+            <td style="width: 10%;">-</td>
+            <td style="width: 10%;">-</td>
+        </tr>
+    </tbody>
+</table>
 
 <h2 id="最终排名依据">最终排名依据</h2>
 
